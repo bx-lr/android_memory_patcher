@@ -1,0 +1,22 @@
+for ips project create the following:
+parser - uses inih
+process poller - searches for processes
+ptrace - lib ptrace wrapper with convience functions for what we want to do 
+hookeng - function hooking engine with common arm and thumb function prologs and how to redirect them 
+	int arm_thumb	;0=arm 1=thumb
+	buffer prolog	;code that id's the prolog
+	buffer patch	;code that is a good patch for the prolog
+	buffer fixups	;code to do fixups
+
+elfparser - parse an elf to get the PLT and .text segments and sizes
+
+create a python script that will build the config script
+	[process]
+	process_name = com.android.browser
+	image_name = libwebcore.so
+	function_symbol = eval
+	function_pattern = (base64 encoded)
+	function_hook = (base64 encoded output from arm-eabi-as and arm-eabi-objdump)
+	
+
+
